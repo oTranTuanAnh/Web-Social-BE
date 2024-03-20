@@ -5,6 +5,7 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity
 @Data
@@ -13,7 +14,7 @@ public class Comment{
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
     @CreationTimestamp
-    private LocalDate createDate;
+    private Date createDate;
     private String content;
     @ManyToOne
     @JoinColumn(name = "user_id")

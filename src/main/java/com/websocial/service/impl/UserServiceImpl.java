@@ -22,7 +22,7 @@ public class UserServiceImpl implements com.websocial.service.IUserService {
 
     @Override
     public User save(User user) {
-        return null;
+        return userRepo.save(user);
     }
 
     @Override
