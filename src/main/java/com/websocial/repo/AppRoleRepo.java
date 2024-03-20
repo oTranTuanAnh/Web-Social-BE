@@ -1,7 +1,7 @@
 package com.websocial.repo;
 
 
-import com.websocial.model.AppRole;
+import com.websocial.model.appUser.AppRole;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
