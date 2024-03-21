@@ -1,10 +1,9 @@
 package com.websocial.repo;
 
-
-import com.websocial.model.appUser.AppRole;
+import com.websocial.model.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface AppRoleRepo extends CrudRepository<AppRole, Long> {
+public interface UserRepo extends CrudRepository<User, Long> {
 }
