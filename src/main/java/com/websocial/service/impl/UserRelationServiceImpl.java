@@ -43,6 +43,7 @@ public class UserRelationServiceImpl implements IUserRelationService {
         for (GetFriendsListOfUser i : friendCol2) {
             idFriends.add(i.getIdFriends());
         }
+        System.out.println(idFriends);
         return idFriends;
     }
 

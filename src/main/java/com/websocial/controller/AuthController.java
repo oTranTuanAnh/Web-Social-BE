@@ -26,6 +26,7 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
+    public static Long current_id;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AppUser user) {
@@ -35,6 +36,8 @@ public class AuthController {
         String jwt = jwtService.generateTokenLogin(authentication);
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         AppUser currentUser = userService.findByUsername(user.getUsername());
+        current_id = currentUser.getId();
+
         return ResponseEntity.ok(new JwtResponse(currentUser.getId(), jwt, userDetails.getUsername(), userDetails.getUsername(), userDetails.getAuthorities()));
     }
 }

@@ -15,8 +15,9 @@ public class HomController {
     @Autowired
     private UserRelationServiceImpl userRelationService;
 
-    @GetMapping("/{id}")
-    public ResponseEntity<List<String>> listPosts(@PathVariable Long id) {
-        return new ResponseEntity<>(userRelationService.showPostOfFriend(id), HttpStatus.OK);
+    @GetMapping("/")
+    public ResponseEntity<List<String>> listPosts() {
+        Long currentId = AuthController.current_id;
+        return new ResponseEntity<>(userRelationService.showPostOfFriend(currentId), HttpStatus.OK);
     }
 }
