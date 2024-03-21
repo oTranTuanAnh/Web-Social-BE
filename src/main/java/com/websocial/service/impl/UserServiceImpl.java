@@ -7,6 +7,7 @@ import com.websocial.model.appUser.AppUser;
 import com.websocial.repo.AppRoleRepo;
 import com.websocial.repo.AppUserRepo;
 import com.websocial.repo.IUserRepo;
+import com.websocial.service.IUserService;
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -18,7 +19,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class UserServiceImpl implements com.websocial.service.IUserService {
+public class UserServiceImpl implements IUserService {
     @Autowired
     private AppUserRepo appUserRepo;
     @Autowired
@@ -52,7 +53,6 @@ public class UserServiceImpl implements com.websocial.service.IUserService {
         appUserRepo.save(appUser);
         return IUserRepo.save(user);
     }
-
     @Override
     public void remove(Long id) {
 

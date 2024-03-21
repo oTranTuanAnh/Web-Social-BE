@@ -38,7 +38,6 @@ public class AuthController {
         AppUser currentUser = userService.findByUsername(user.getUsername());
         JwtResponse a = new JwtResponse(currentUser.getId(), jwt, userDetails.getUsername(), userDetails.getUsername(), userDetails.getAuthorities());
         current_id = currentUser.getId();
-        System.out.println(current_id);
         return ResponseEntity.ok(a);
 //        return ResponseEntity.ok(new JwtResponse(currentUser.getId(), jwt, userDetails.getUsername(), userDetails.getUsername(), userDetails.getAuthorities()));
     }
