@@ -36,18 +36,10 @@ public class UserRelationShipService implements IUserRelationShipService<UserRel
     }
     @Override
     public void addFriendRequest(Long idSource, Long idTarget) {
-        userRelatinoShipRepo.addFriendRequest(idSource,idTarget);
+         userRelatinoShipRepo.addFriendRequest(idSource,idTarget);
     }
     @Override
     public boolean isFriendRequest(Long idSource, Long idTarget){
-//        Optional<User> userSource = userService.findById(idSource);
-//        Optional<User> userTarget = userService.findById(idTarget);
-//        List<UserRelationShip> userRelationShipList = userTarget.get().getUserRelationShips();
-//        for(UserRelationShip userRelationShip : userRelationShipList){
-//            if(userRelationShip.getUser().getId() == userSource.get().getId()) {
-//                return true;
-//            }
-//        }
         return false;
     }
 }
