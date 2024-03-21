@@ -5,6 +5,8 @@ import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Data
@@ -19,6 +21,6 @@ public class User{
     private String  firstName;
     private String lastName;
     private String phoneNumber;
-    private LocalDate dateOfBirth;
+    private Date dateOfBirth;
     private String gender;
 }
