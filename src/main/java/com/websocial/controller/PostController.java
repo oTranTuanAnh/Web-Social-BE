@@ -1,8 +1,9 @@
 package com.websocial.controller;
 
 import com.websocial.model.Post;
-import com.websocial.model.dto.GetPostFromUser;
+import com.websocial.model.dto.GetFriendsListOfUser;
 import com.websocial.service.impl.PostServiceImpl;
+import com.websocial.service.impl.UserRelationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,8 @@ import java.util.Optional;
 @CrossOrigin("*")
 @RequestMapping("/posts")
 public class PostController {
+    @Autowired
+    private UserRelationServiceImpl userRelationService;
     @Autowired
     private PostServiceImpl postService;
     @GetMapping("/{id}")
@@ -33,6 +36,11 @@ public class PostController {
         }
         postService.remove(id);
         return new ResponseEntity<>(customerOptional.get(),HttpStatus.OK);
+    }
+
+    @GetMapping("/home/{id}")
+    public ResponseEntity<Iterable<Post>> listPostAtHome(@PathVariable Long id) {
+        return new ResponseEntity<>(postService.getPostOfFr(id), HttpStatus.OK);
     }
 
 }
