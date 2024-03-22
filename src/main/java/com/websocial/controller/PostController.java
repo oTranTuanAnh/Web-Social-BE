@@ -1,6 +1,7 @@
 package com.websocial.controller;
 
 import com.websocial.model.Post;
+import com.websocial.model.User;
 import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.service.impl.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,12 +17,14 @@ import java.util.Optional;
 public class PostController {
     @Autowired
     private PostServiceImpl postService;
+
     @GetMapping("/{id}")
     public ResponseEntity<Iterable<Post>> listPosts(@PathVariable Long id) {
         return new ResponseEntity<>(postService.postList(id), HttpStatus.OK);
     }
+
     @PostMapping("/create")
-    public ResponseEntity<Post> create(@RequestBody Post post){
+    public ResponseEntity<Post> create(@RequestBody Post post) {
         return new ResponseEntity<>(postService.save(post), HttpStatus.CREATED);
     }
 
@@ -32,7 +35,7 @@ public class PostController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         postService.remove(id);
-        return new ResponseEntity<>(customerOptional.get(),HttpStatus.OK);
+        return new ResponseEntity<>(customerOptional.get(), HttpStatus.OK);
     }
-
 }
+
