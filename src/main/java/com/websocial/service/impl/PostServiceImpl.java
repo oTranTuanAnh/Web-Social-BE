@@ -1,6 +1,7 @@
 package com.websocial.service.impl;
 
 import com.websocial.model.Post;
+import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.repo.PostRepo;
 import com.websocial.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,18 +37,20 @@ public class PostServiceImpl implements IPostService {
     }
 
     public Iterable<Post> postList(Long id) {
-        return postRepo.findPostByUserId(id);
+//        return postRepo.findPostByUserId(id);
+        return postRepo.findPostByUserIdOrderByCreateDateDesc(id);
     }
 
-    public List<String> showPostOfFriend(Long id) {
-        List<String> post = new ArrayList<>();
-        List<Long> friends = userRelationService.getIdOfFriends(id);
-        for (Long i : friends) {
-            Iterable<Post> posts = postRepo.findPostByUserId(i);
-            for (Post j : posts) {
-                post.add(j.getContent());
-            }
-        }
-        return post;
-    }
+
+//    public List<String> showPostOfFriend(Long id) {
+//        List<String> post = new ArrayList<>();
+//        List<Long> friends = userRelationService.getIdOfFriends(id);
+//        for (Long i : friends) {
+//            Iterable<Post> posts = postRepo.findPostByUserId(i);
+//            for (Post j : posts) {
+//                post.add(j.getContent());
+//            }
+//        }
+//        return post;
+//    }
 }
