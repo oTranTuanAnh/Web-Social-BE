@@ -36,10 +36,22 @@ public class UserRelationShipService implements IUserRelationShipService<UserRel
     }
     @Override
     public void addFriendRequest(Long idSource, Long idTarget) {
-         userRelatinoShipRepo.addFriendRequest(idSource,idTarget);
+        if (isMe(idSource,idTarget)){
+            System.out.println("trung");
+        }else {
+            userRelatinoShipRepo.addFriendRequest(idSource,idTarget);
+        }
     }
     @Override
     public boolean isFriendRequest(Long idSource, Long idTarget){
         return false;
+    }
+    public boolean isMe(Long idSource,Long idTarget){
+        if (idSource == idTarget){
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 }
