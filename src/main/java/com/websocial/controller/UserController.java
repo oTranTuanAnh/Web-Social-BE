@@ -40,13 +40,4 @@ public class UserController {
 //    public ResponseEntity<Smartphone> createSmartphone(@RequestBody Smartphone smartphone) {
 //        return new ResponseEntity<>(smartphoneService.save(smartphone), HttpStatus.CREATED);
 //    }
-@GetMapping("/{id}")
-public ResponseEntity<User> userById(@PathVariable Long id){
-    Optional<User> customerOptional = userService.findById(id);
-    if (!customerOptional.isPresent()) {
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-    }
-    User user = customerOptional.get();
-    return new ResponseEntity<>(user, HttpStatus.OK);
-}
 }
