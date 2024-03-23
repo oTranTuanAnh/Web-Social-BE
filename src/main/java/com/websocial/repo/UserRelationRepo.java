@@ -11,11 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 @Transactional
 public interface UserRelationRepo extends CrudRepository<UserRelationShip, Long> {
-    @Query(nativeQuery = true, value = "select id1 from UserRelationship where id2=:id and status=1")
+    @Query(nativeQuery = true, value = "select user_id1 as u_id from user_relation_ship where user_id2=:id and status=1")
     Iterable<GetFriendsListOfUser> friendsOfColUser1(@Param("id") Long id);
 
-    @Query(nativeQuery = true, value = "select id2 from UserRelationship where id1=:id and status=1")
+    @Query(nativeQuery = true, value = "select user_id2 as u_id from user_relation_ship where user_id1=:id and status=1")
     Iterable<GetFriendsListOfUser> friendsOfColUser2(@Param("id") Long id);
-
 
 }
