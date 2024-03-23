@@ -1,7 +1,9 @@
 package com.websocial.controller;
 
+import com.websocial.model.Likes;
 import com.websocial.model.Post;
 import com.websocial.model.dto.GetPostFromUser;
+import com.websocial.service.ILikesService;
 import com.websocial.service.impl.PostServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,6 +19,10 @@ import java.util.Optional;
 public class PostController {
     @Autowired
     private PostServiceImpl postService;
+
+    @Autowired
+    private ILikesService likesService;
+
     @GetMapping("/{id}")
     public ResponseEntity<Iterable<Post>> listPosts(@PathVariable Long id) {
         return new ResponseEntity<>(postService.postList(id), HttpStatus.OK);
