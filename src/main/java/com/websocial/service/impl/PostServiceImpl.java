@@ -2,10 +2,13 @@ package com.websocial.service.impl;
 
 import com.websocial.model.Post;
 import com.websocial.model.dto.GetFriendsListOfUser;
+import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.repo.PostRepo;
 import com.websocial.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -37,9 +40,9 @@ public class PostServiceImpl implements IPostService {
     }
 
     public Iterable<Post> postList(Long id) {
+//        return postRepo.findPostByUserId(id);
         return postRepo.findPostByUserIdOrderByCreateDateDesc(id);
     }
-
     public Iterable<Post> postListByFr(Long id) {
         return postRepo.findPostByUserId(id);
     }
@@ -59,4 +62,5 @@ public class PostServiceImpl implements IPostService {
 
         return postList;
     }
+
 }
