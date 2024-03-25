@@ -6,12 +6,13 @@ import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.repo.PostRepo;
 import com.websocial.service.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
+
 @Service
 public class  PostServiceImpl implements IPostService {
     @Autowired
@@ -59,8 +60,10 @@ public class  PostServiceImpl implements IPostService {
                 postList.add(p);
             }
         }
+        postList.sort(Comparator.comparing(Post::getCreateDate).reversed());
 
         return postList;
     }
+
 
 }
