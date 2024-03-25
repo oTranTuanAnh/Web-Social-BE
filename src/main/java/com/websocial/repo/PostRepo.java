@@ -15,5 +15,5 @@ public interface PostRepo extends CrudRepository<Post,Long> {
     Iterable<Post> findPostByUserIdOrderByCreateDateDesc(Long id);
 
     Iterable<Post> findPostByUserId(Long id);
-    void deleteById(Long id);
+    
 }

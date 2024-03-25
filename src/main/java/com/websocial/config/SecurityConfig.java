@@ -67,6 +67,7 @@ public class SecurityConfig {
                         .requestMatchers("/users/**").permitAll()
                         .requestMatchers("/posts/**").permitAll()
                         .requestMatchers("/likes/**").permitAll()
+                        .requestMatchers("/comments/**").permitAll()
                         .requestMatchers("/posts/**").hasAnyAuthority("ROLE_USER")
                         .requestMatchers("/likes/**").hasAnyAuthority("ROLE_USER")
                         .requestMatchers(HttpMethod.GET,"/api/customers**").authenticated()
