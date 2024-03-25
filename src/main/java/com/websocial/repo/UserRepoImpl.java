@@ -11,6 +11,15 @@ public class UserRepoImpl implements IUserRepo{
     }
 
     @Override
+    public Iterable<User> findFriendRecmt(Long id) {
+        return null;
+    }
+
+//    @Override
+//    public Iterable<User> findFriendRecmt(Long id1, Long id2) {
+//        return null;
+//    }
+    @Override
     public <S extends User> S save(S entity) {
         return null;
     }

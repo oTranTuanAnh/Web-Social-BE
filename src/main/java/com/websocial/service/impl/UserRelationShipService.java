@@ -54,4 +54,10 @@ public class UserRelationShipService implements IUserRelationShipService<UserRel
             return false;
         }
     }
+    public void successRequest(Long idRequest,Long idSuccess){
+        userRelatinoShipRepo.successRequest(idRequest,idSuccess);
+    }
+    public Iterable<UserRelationShip> showAddFriendRequest(Long id){
+      return   userRelatinoShipRepo.showAddFriendRequestById(id);
+    }
 }
