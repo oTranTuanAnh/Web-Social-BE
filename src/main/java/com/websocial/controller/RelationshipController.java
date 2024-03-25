@@ -14,8 +14,8 @@ public class RelationshipController {
     @Autowired
     UserRelationServiceImpl userRelationService;
     @GetMapping("/check-relationship")
-    public ResponseEntity<UserRelationShip> checkRelationship(@RequestParam("id1") Long id1, @RequestParam("id2") Long id2) {
-        UserRelationShip userRelationShip = userRelationService.findRelationship(id1, id2);
+    public ResponseEntity<UserRelationShip> checkRelationship(@RequestParam("id2") Long id2) {
+        UserRelationShip userRelationShip = userRelationService.findRelationship(AuthController.getId(), id2);
         return new  ResponseEntity<>(userRelationShip, HttpStatus.OK);
     }
 }
