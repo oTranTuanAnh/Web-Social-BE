@@ -43,4 +43,8 @@ public class LikesServiceImpl implements ILikesService {
         likesRepo.deleteByPostId(id);
     }
 
+    public Likes findByUserIdAndPostId(Long uId, Long pId) {
+        return likesRepo.findByUserIdAndPostId(uId, pId);
+    }
+
 }
