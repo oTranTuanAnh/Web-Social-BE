@@ -2,7 +2,9 @@ package com.websocial.controller;
 
 import com.websocial.model.Post;
 import com.websocial.model.User;
+import com.websocial.model.UserRelationShip;
 import com.websocial.repo.IUserRepo;
+import com.websocial.service.impl.UserRelationShipService;
 import com.websocial.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,7 +23,9 @@ public class UserController {
     private UserServiceImpl userService;
     @GetMapping
     public ResponseEntity<Iterable<User>> listUsers() {
+
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+
     }
 
     @PostMapping("/create")

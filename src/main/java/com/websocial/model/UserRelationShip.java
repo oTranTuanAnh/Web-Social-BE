@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 
 
 import java.time.LocalDate;
@@ -17,10 +18,12 @@ public class UserRelationShip {
     @CreationTimestamp
     private LocalDate createDate;
     @ManyToOne
+
     @JoinColumn(name = "user_id1", insertable = false, updatable = false)
     private User user1;
     @ManyToOne
     @JoinColumn(name = "user_id2", insertable = false, updatable = false)
+
     private User use2r;
     @ColumnDefault(value = "0")
     private String status;

@@ -2,9 +2,9 @@ package com.websocial.model;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
-
 import java.time.LocalDate;
 import java.util.Date;
+
 
 @Entity
 @Data
@@ -21,4 +21,6 @@ public class User{
     private String phoneNumber;
     private Date dateOfBirth;
     private String gender;
+//    @OneToMany
+//    private List<UserRelationShip> userRelationShips;
 }

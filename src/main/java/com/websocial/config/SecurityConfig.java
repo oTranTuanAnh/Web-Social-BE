@@ -76,6 +76,13 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.PUT,"/api/customers**").hasAnyAuthority("ROLE_ADMIN")
                         .requestMatchers(HttpMethod.DELETE,"/api/customers**").hasAnyAuthority("ROLE_ADMIN")
                         .requestMatchers("/relationship/**").permitAll()
+                        .requestMatchers("/home/**").permitAll()
+                        .requestMatchers("/friendrequest/**").permitAll()
+//                        .requestMatchers(HttpMethod.GET,"/api/customers**").authenticated()
+//                        .requestMatchers("/api/customers**").hasAnyAuthority("ROLE_ADMIN")
+//                        .requestMatchers(HttpMethod.PUT,"/api/customers**").hasAnyAuthority("ROLE_ADMIN")
+//                        .requestMatchers(HttpMethod.DELETE,"/api/customers**").hasAnyAuthority("ROLE_ADMIN")
+
                 )
                 .exceptionHandling(customizer -> customizer.accessDeniedHandler(customAccessDeniedHandler()))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
