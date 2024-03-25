@@ -20,9 +20,9 @@ public class HomeController {
     @GetMapping("/friend")
     public ResponseEntity<Iterable<User>> showAll(){
         Long id = AuthController.current_id;
-        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
-//        return new ResponseEntity<>(userService.findFriendRecmt(id), HttpStatus.OK);
+        return new ResponseEntity<>(userService.findFriendRecmt(id), HttpStatus.OK);
     }
+
     @GetMapping("/friendrequest/add/{id}")
     public ResponseEntity<Long> addFriendRequest(@PathVariable("id")Long idTarget){
         Long idSource = AuthController.current_id;
