@@ -14,6 +14,8 @@ import java.util.Optional;
 public class LikesServiceImpl implements ILikesService {
     @Autowired
     private LikesRepo likesRepo;
+
+
     @Override
     public Iterable<Likes> findAll() {
         return likesRepo.findAll();
@@ -34,7 +36,8 @@ public class LikesServiceImpl implements ILikesService {
         likesRepo.deleteById(id);
     }
 
-    public Iterable<CountLikes> getTotalLike(Long id) {
+    public Long getTotalLike(Long id) {
         return likesRepo.likesOfPost(id);
     }
+
 }

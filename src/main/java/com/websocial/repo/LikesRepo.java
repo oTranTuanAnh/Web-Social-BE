@@ -9,7 +9,9 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface LikesRepo extends CrudRepository<Likes, Long> {
-    @Query(nativeQuery = true, value = "select count(user_id) as C from likes where post_id=:id")
-    Iterable<CountLikes> likesOfPost(@Param("id") Long id);
+//    @Query(nativeQuery = true, value = "select count(user_id) from likes where post_id=:id")
+//    Iterable<Long> likesOfPost(@Param("id") Long id);
+    @Query(nativeQuery = true, value = "select count(user_id) from likes where post_id=:id")
+    Long likesOfPost(@Param("id") Long id);
 
 }

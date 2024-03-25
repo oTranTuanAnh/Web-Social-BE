@@ -1,9 +1,7 @@
 package com.websocial.controller;
 
 import com.websocial.model.Likes;
-import com.websocial.model.Post;
 import com.websocial.model.dto.CountLikes;
-import com.websocial.service.ILikesService;
 import com.websocial.service.impl.LikesServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +20,8 @@ public class LikeController {
         return new ResponseEntity<>(likesService.save(likes), HttpStatus.CREATED);
     }
     @GetMapping("/{id}")
-    public ResponseEntity<Iterable<CountLikes>> countLikeOfPost(@PathVariable Long id) {
+    public ResponseEntity<Long> countLikeOfPost(@PathVariable Long id) {
         return new ResponseEntity<>(likesService.getTotalLike(id), HttpStatus.OK);
     }
+
 }
