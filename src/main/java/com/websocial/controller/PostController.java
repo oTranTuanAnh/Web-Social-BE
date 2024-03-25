@@ -5,7 +5,9 @@ import com.websocial.model.Post;
 import com.websocial.model.User;
 import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.service.ILikesService;
+import com.websocial.service.impl.LikesServiceImpl;
 import com.websocial.service.impl.PostServiceImpl;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -22,7 +24,7 @@ public class PostController {
     private PostServiceImpl postService;
 
     @Autowired
-    private ILikesService likesService;
+    private LikesServiceImpl likesService;
 
 
     @GetMapping("/{id}")
@@ -34,12 +36,14 @@ public class PostController {
         return new ResponseEntity<>(postService.save(post), HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/delete/{id}")
+    @Transactional
     public ResponseEntity<Post> delete(@PathVariable Long id) {
         Optional<Post> postOptional = postService.findById(id);
         if (!postOptional.isPresent()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
+        likesService.deleteByPostId(id);
         postService.remove(id);
         return new ResponseEntity<>(postOptional.get(),HttpStatus.OK);
     }
