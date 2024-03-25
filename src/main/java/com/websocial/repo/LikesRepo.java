@@ -2,6 +2,7 @@ package com.websocial.repo;
 
 import com.websocial.model.Likes;
 import com.websocial.model.dto.CountLikes;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
@@ -13,7 +14,8 @@ public interface LikesRepo extends CrudRepository<Likes, Long> {
 //    Iterable<Long> likesOfPost(@Param("id") Long id);
     @Query(nativeQuery = true, value = "select count(user_id) from likes where post_id=:id")
     Long likesOfPost(@Param("id") Long id);
-
     void deleteByPostId(Long id);
+
+    Likes findByUserIdAndPostId(Long uId,Long pId);
 
 }
