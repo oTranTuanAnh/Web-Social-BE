@@ -1,5 +1,6 @@
 package com.websocial.model.dto;
 
 public interface GetFriendsListOfUser {
-    Long getIdFriends();
+    Long getU_id();
 }
+

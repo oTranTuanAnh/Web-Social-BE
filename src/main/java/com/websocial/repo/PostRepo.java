@@ -12,10 +12,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface PostRepo extends CrudRepository<Post,Long> {
 
-    @Query(nativeQuery = true, value = "select * from post where user_id =:id order by create_date desc;")
-    Iterable<GetPostFromUser> getPostFromUser(@Param("id") Long id);
-    Iterable<Post> findPostByUserId(Long id);
     Iterable<Post> findPostByUserIdOrderByCreateDateDesc(Long id);
 
+    Iterable<Post> findPostByUserId(Long id);
     void deleteById(Long id);
 }

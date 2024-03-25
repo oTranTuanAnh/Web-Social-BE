@@ -34,17 +34,16 @@ public class UserRelationServiceImpl implements IUserRelationService {
     public void remove(Long id) {
 
     }
-    public List<Long> getIdOfFriends(Long id){
-        List<Long> idFriends = new ArrayList<>();
-        Iterable<GetFriendsListOfUser> friendCol1 = userRelationRepo.friendsOfColUser1(id);
-        Iterable<GetFriendsListOfUser> friendCol2 = userRelationRepo.friendsOfColUser2(id);
-        for (GetFriendsListOfUser i : friendCol1) {
-            idFriends.add(i.getIdFriends());
+    public Iterable<GetFriendsListOfUser> getIdOfFriends(Long id) {
+        List<GetFriendsListOfUser> userList = new ArrayList<>();
+        Iterable<GetFriendsListOfUser> l1 = userRelationRepo.friendsOfColUser1(id);
+        Iterable<GetFriendsListOfUser> l2 = userRelationRepo.friendsOfColUser2(id);
+        for (GetFriendsListOfUser g: l1){
+            userList.add(g);
         }
-        for (GetFriendsListOfUser i : friendCol2) {
-            idFriends.add(i.getIdFriends());
+        for (GetFriendsListOfUser g: l2){
+            userList.add(g);
         }
-        System.out.println(idFriends);
-        return idFriends;
+        return userList;
     }
 }
