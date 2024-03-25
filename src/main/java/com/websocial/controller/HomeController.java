@@ -36,8 +36,11 @@ public class HomeController {
     @PutMapping("/friendrequest/{id}")
     public ResponseEntity<Long> successRequest(@PathVariable("id")Long id){
         userRelationShipService.successRequest(id,AuthController.current_id);
-        System.out.println(id);
-        System.out.println(AuthController.current_id);
+        return new ResponseEntity<>(id,HttpStatus.OK);
+    }
+    @DeleteMapping("/friendrequest/{id}")
+    public ResponseEntity<Long> removeAddFriendRequest(@PathVariable("id")Long id){
+        userRelationShipService.removeAddFriendRequest(id,AuthController.current_id);
         return new ResponseEntity<>(id,HttpStatus.OK);
     }
 }

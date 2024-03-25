@@ -60,4 +60,7 @@ public class UserRelationShipService implements IUserRelationShipService<UserRel
     public Iterable<UserRelationShip> showAddFriendRequest(Long id){
       return   userRelatinoShipRepo.showAddFriendRequestById(id);
     }
+    public void removeAddFriendRequest(Long id1,Long id2){
+        userRelatinoShipRepo.removeFriendRequest(id1,id2);
+    }
 }
