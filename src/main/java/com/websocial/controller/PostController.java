@@ -6,6 +6,7 @@ import com.websocial.model.User;
 import com.websocial.model.dto.GetPostFromUser;
 import com.websocial.service.ILikesService;
 import com.websocial.service.impl.PostServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.Optional;
-
 @RestController
 @CrossOrigin("*")
 @RequestMapping("/posts")
@@ -23,6 +23,7 @@ public class PostController {
 
     @Autowired
     private ILikesService likesService;
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Iterable<Post>> listPosts(@PathVariable Long id) {
