@@ -58,7 +58,6 @@ public class PostController {
         post.setCreateDate(current_date);
         post.setUser(postOptional.get().getUser());
         postService.save(post);
-
         return new ResponseEntity<>(post, HttpStatus.OK);
     }
 
