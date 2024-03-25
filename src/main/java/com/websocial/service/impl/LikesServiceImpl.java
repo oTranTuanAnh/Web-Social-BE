@@ -39,5 +39,8 @@ public class LikesServiceImpl implements ILikesService {
     public Long getTotalLike(Long id) {
         return likesRepo.likesOfPost(id);
     }
+    public void deleteByPostId(Long id){
+        likesRepo.deleteByPostId(id);
+    }
 
 }
