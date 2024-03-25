@@ -8,7 +8,7 @@ import java.util.Date;
 
 @Entity
 @Data
-public class Friend{
+public class        Friend{
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
