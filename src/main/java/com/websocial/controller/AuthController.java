@@ -26,7 +26,7 @@ public class AuthController {
 
     @Autowired
     private UserService userService;
-    private static Long current_id;
+    public static Long current_id;
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody AppUser user) {

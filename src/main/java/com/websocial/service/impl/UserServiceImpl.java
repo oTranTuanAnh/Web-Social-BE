@@ -68,8 +68,13 @@ public class UserServiceImpl implements IUserService {
             }
 
     }
+    public Iterable<User> findFriendRecmt(Long id){
+//        System.out.println(IUserRepo.findFriendRecmt(1L));
+        return IUserRepo.findFriendRecmt(id);
+    }
 
     private boolean exitsByUsername(String email) {
         return IUserRepo.existsByEmail(email);
     }
+
 }
