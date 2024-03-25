@@ -72,4 +72,5 @@ public class UserServiceImpl implements IUserService {
     private boolean exitsByUsername(String email) {
         return IUserRepo.existsByEmail(email);
     }
+
 }

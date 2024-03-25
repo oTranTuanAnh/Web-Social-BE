@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 @Service
-public class PostServiceImpl implements IPostService {
+public class  PostServiceImpl implements IPostService {
     @Autowired
     private PostRepo postRepo;
 

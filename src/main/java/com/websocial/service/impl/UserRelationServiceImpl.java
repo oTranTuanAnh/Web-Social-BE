@@ -1,5 +1,6 @@
 package com.websocial.service.impl;
 
+import com.websocial.model.User;
 import com.websocial.model.UserRelationShip;
 import com.websocial.model.dto.GetFriendsListOfUser;
 import com.websocial.repo.UserRelationRepo;
@@ -45,5 +46,10 @@ public class UserRelationServiceImpl implements IUserRelationService {
             userList.add(g);
         }
         return userList;
+    }
+
+    @Override
+    public UserRelationShip findRelationship(Long id1, Long id2) {
+        return userRelationRepo.findRelationship(id1,id2);
     }
 }

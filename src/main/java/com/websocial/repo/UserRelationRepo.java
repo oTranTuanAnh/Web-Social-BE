@@ -17,4 +17,6 @@ public interface UserRelationRepo extends CrudRepository<UserRelationShip, Long>
     @Query(nativeQuery = true, value = "select user_id2 as u_id from user_relation_ship where user_id1=:id and status=1")
     Iterable<GetFriendsListOfUser> friendsOfColUser2(@Param("id") Long id);
 
+    @Query(value = "select * from user_relation_ship where ((user_id1 = :id1 and user_id2 = :id2) or (user_id1 = :id2 and user_id2 = :id1)) and status <> 0", nativeQuery = true)
+    UserRelationShip findRelationship(@Param("id1") Long id1, @Param("id2") Long id2);
 }
