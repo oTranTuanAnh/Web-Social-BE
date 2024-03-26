@@ -38,4 +38,8 @@ public class CommentServiceImpl implements ICommentService {
     public void remove(Long id) {
         commentRepo.deleteById(id);
     }
+
+    public Long countComment(Long id) {
+        return commentRepo.countCommentByPostId(id);
+    }
 }

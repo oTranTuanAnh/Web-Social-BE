@@ -13,4 +13,5 @@ public interface IUserRepo extends CrudRepository<User, Long> {
     Boolean existsByEmail(String email);
     @Query(nativeQuery = true,value = "select * from user where user.id != :id and user.id not in (select user_id2 from user_relation_ship where user_id1 = :id);")
     Iterable<User> findFriendRecmt(@Param("id")Long id);
+
 }

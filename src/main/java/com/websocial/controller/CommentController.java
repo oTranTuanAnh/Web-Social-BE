@@ -35,4 +35,9 @@ public class CommentController {
         return new ResponseEntity<>(comOptional.get(),HttpStatus.OK);
     }
 
+    @GetMapping("/count/{id}")
+    public ResponseEntity<Long> countComment(@PathVariable Long id) {
+        return new ResponseEntity<>(commentService.countComment(id), HttpStatus.OK);
+    }
+
 }
